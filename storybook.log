@@ -1,0 +1,22 @@
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR! 
+npm ERR! While resolving: yahtzee@0.1.0
+npm ERR! Found: react-scripts@1.1.4
+npm ERR! node_modules/react-scripts
+npm ERR!   react-scripts@"1.1.4" from the root project
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer react-scripts@">=5.0.0" from @storybook/preset-create-react-app@7.4.0
+npm ERR! node_modules/@storybook/preset-create-react-app
+npm ERR!   dev @storybook/preset-create-react-app@"7.4.0" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! 
+npm ERR! For a full report see:
+npm ERR! C:\Users\sreer\AppData\Local\npm-cache\_logs\2023-08-31T05_47_29_680Z-eresolve-report.txt
+
+npm ERR! A complete log of this run can be found in: C:\Users\sreer\AppData\Local\npm-cache\_logs\2023-08-31T05_47_29_680Z-debug-0.log
