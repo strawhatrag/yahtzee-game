@@ -8,12 +8,14 @@
   justify-content: center;
   align-items: center;
 }
+
 h2 {
   font-weight: 100;
   font-size: 2em;
   border-bottom: 2px solid purple;
   display: inline-block;
 }
+
 .Game-dice-section {
   width: 80%;
   margin-left: auto;
@@ -34,12 +36,10 @@ h2 {
   transition: 0.5s;
   background-size: 200% auto;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
-  background-image: linear-gradient(
-    to right,
-    #91eae4 0%,
-    #7f7fd5 51%,
-    #91eae4 100%
-  );
+  background-image: linear-gradient(to right,
+      #91eae4 0%,
+      #7f7fd5 51%,
+      #91eae4 100%);
   border-radius: 0.5rem;
   border: none;
   width: 50%;
@@ -81,9 +81,11 @@ h2 {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
