@@ -102,30 +102,42 @@ class Yahtzee extends Rule {
   };
 }
 
-// ones, twos, etc score as sum of that value
-const ones = new TotalOneNumber({ val: 1 });
-const twos = new TotalOneNumber({ val: 2 });
-const threes = new TotalOneNumber({ val: 3 });
-const fours = new TotalOneNumber({ val: 4 });
-const fives = new TotalOneNumber({ val: 5 });
-const sixes = new TotalOneNumber({ val: 6 });
+const ones = new TotalOneNumber({ val: 1, description: "Sum of 1's" });
+const twos = new TotalOneNumber({ val: 2, description: "Sum of 2's" });
+const threes = new TotalOneNumber({ val: 3, description: "Sum of 3's" });
+const fours = new TotalOneNumber({ val: 4, description: "Sum of 4's" });
+const fives = new TotalOneNumber({ val: 5, description: "Sum of 5's" });
+const sixes = new TotalOneNumber({ val: 6, description: "Sum of 6's" });
 
-// three/four of kind score as sum of all dice
-const threeOfKind = new SumDistro({ count: 3 });
-const fourOfKind = new SumDistro({ count: 4 });
+const threeOfKind = new SumDistro({
+  count: 3,
+  description: "Sum of three of a kind",
+});
+const fourOfKind = new SumDistro({
+  count: 4,
+  description: "Sum of four of a kind",
+});
 
-// full house scores as flat 25
-const fullHouse = new FullHouse({ score: 25 });
+const fullHouse = new FullHouse({
+  score: 25,
+  description: "Full House (25 points)",
+});
 
-// small/large straights score as 30/40
-const smallStraight = new SmallStraight({ score: 30 });
-const largeStraight = new LargeStraight({ score: 40 });
+const smallStraight = new SmallStraight({
+  score: 30,
+  description: "Small Straight (30 points)",
+});
+const largeStraight = new LargeStraight({
+  score: 40,
+  description: "Large Straight (40 points)",
+});
 
-// yahtzee scores as 50
-const yahtzee = new Yahtzee({ score: 50 });
+const yahtzee = new Yahtzee({ score: 50, description: "Yahtzee (50 points)" });
 
-// for chance, can view as some of all dice, requiring at least 0 of a kind
-const chance = new SumDistro({ count: 0 });
+const chance = new SumDistro({
+  count: 0,
+  description: "Sum of all dice",
+});
 
 export {
   ones,

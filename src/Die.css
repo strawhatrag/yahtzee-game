@@ -12,10 +12,11 @@
 
 /* THE NICER STYLES MADE FOR THE FONT-AWESOME ICONS... */
 
-/* .Die {
+.Die {
   color: white;
   text-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  animation: spin 1s ease-out;
 }
 
 .Die-locked {
@@ -27,6 +28,7 @@
   cursor: pointer;
   opacity: 0.8;
 }
+
 .Die-rolling {
   animation: spin 1s ease-out;
 }
@@ -40,7 +42,8 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
-} */
+}
