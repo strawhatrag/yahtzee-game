@@ -3,7 +3,8 @@
 ## Setup
 1. Install required npm libraries: `npm install`
 2. Start the server: `npm start`
-[Live Demo]([https://your-live-link.com](https://strawhatrag.github.io/yahtzee-game/))
+
+### [Live Demo](https://strawhatrag.github.io/yahtzee-game/)
 
 ![Yahtzee Screenshot](public/yahtzee.gif)
 
