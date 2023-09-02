@@ -1,8 +1,10 @@
 .ScoreTable {
   display: flex;
   flex-direction: column;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  font-weight: bold;
   width: 80%;
+  color: rgb(74, 1, 143);
   background-color: white;
   padding: 1em;
 }

@@ -28,7 +28,7 @@ class Rule {
 
   count(dice, val) {
     // # times val appears in dice
-    return dice.filter((d) => d === val).length;
+    return dice.filter(d => d === val).length;
   }
 }
 
@@ -38,7 +38,7 @@ class Rule {
  */
 
 class TotalOneNumber extends Rule {
-  evalRoll = (dice) => {
+  evalRoll = dice => {
     return this.val * this.count(dice, this.val);
   };
 }
@@ -49,16 +49,16 @@ class TotalOneNumber extends Rule {
  */
 
 class SumDistro extends Rule {
-  evalRoll = (dice) => {
+  evalRoll = dice => {
     // do any of the counts meet of exceed this distro?
-    return this.freq(dice).some((c) => c >= this.count) ? this.sum(dice) : 0;
+    return this.freq(dice).some(c => c >= this.count) ? this.sum(dice) : 0;
   };
 }
 
 /** Check if full house (3-of-kind and 2-of-kind) */
-
+// [1,2,2,2,1]
 class FullHouse extends Rule {
-  evalRoll = (dice) => {
+  evalRoll = dice => {
     const freqs = this.freq(dice);
     return freqs.includes(2) && freqs.includes(3) ? this.score : 0;
   };
@@ -67,16 +67,15 @@ class FullHouse extends Rule {
 /** Check for small straights. */
 
 class SmallStraight extends Rule {
-  evalRoll = (dice) => {
+  evalRoll = dice => {
     const d = new Set(dice);
-
-    if (d.has(2) && d.has(4) && d.has(3) && (d.has(5) || d.has(1))) {
+    // straight can be 234 + either 1 or 5
+    if (d.has(2) && d.has(3) && d.has(4) && (d.has(1) || d.has(5)))
       return this.score;
-    }
 
-    if (d.has(3) && d.has(4) && d.has(5) && (d.has(6) || d.has(2))) {
+    // or 345 + either 2 or 6
+    if (d.has(3) && d.has(4) && d.has(5) && (d.has(2) || d.has(6)))
       return this.score;
-    }
 
     return 0;
   };
@@ -85,7 +84,7 @@ class SmallStraight extends Rule {
 /** Check for large straights. */
 
 class LargeStraight extends Rule {
-  evalRoll = (dice) => {
+  evalRoll = dice => {
     const d = new Set(dice);
 
     // large straight must be 5 different dice & only one can be a 1 or a 6
@@ -96,48 +95,54 @@ class LargeStraight extends Rule {
 /** Check if all dice are same. */
 
 class Yahtzee extends Rule {
-  evalRoll = (dice) => {
+  evalRoll = dice => {
     // all dice must be the same
     return this.freq(dice)[0] === 5 ? this.score : 0;
   };
 }
 
-const ones = new TotalOneNumber({ val: 1, description: "Sum of 1's" });
-const twos = new TotalOneNumber({ val: 2, description: "Sum of 2's" });
-const threes = new TotalOneNumber({ val: 3, description: "Sum of 3's" });
-const fours = new TotalOneNumber({ val: 4, description: "Sum of 4's" });
-const fives = new TotalOneNumber({ val: 5, description: "Sum of 5's" });
-const sixes = new TotalOneNumber({ val: 6, description: "Sum of 6's" });
+// ones, twos, etc score as sum of that value
+const ones = new TotalOneNumber({ val: 1, description: "1 point per 1" });
+const twos = new TotalOneNumber({ val: 2, description: "2 points per 2" });
+const threes = new TotalOneNumber({ val: 3, description: "3 points per 3" });
+const fours = new TotalOneNumber({ val: 4, description: "4 points per 4" });
+const fives = new TotalOneNumber({ val: 5, description: "5 points per 5" });
+const sixes = new TotalOneNumber({ val: 6, description: "6 points per 6" });
 
+// three/four of kind score as sum of all dice
 const threeOfKind = new SumDistro({
   count: 3,
-  description: "Sum of three of a kind",
+  description: "Sum all dice if 3 are the same"
 });
 const fourOfKind = new SumDistro({
   count: 4,
-  description: "Sum of four of a kind",
+  description: "Sum all dice if 4 are the same"
 });
 
+// full house scores as flat 25
 const fullHouse = new FullHouse({
   score: 25,
-  description: "Full House (25 points)",
+  description: "25 points for a full house"
 });
 
+// small/large straights score as 30/40
 const smallStraight = new SmallStraight({
   score: 30,
-  description: "Small Straight (30 points)",
+  description: "30 points for a small straight"
 });
 const largeStraight = new LargeStraight({
   score: 40,
-  description: "Large Straight (40 points)",
+  description: "40 points for a large straight"
 });
 
-const yahtzee = new Yahtzee({ score: 50, description: "Yahtzee (50 points)" });
-
-const chance = new SumDistro({
-  count: 0,
-  description: "Sum of all dice",
+// yahtzee scores as 50
+const yahtzee = new Yahtzee({
+  score: 50,
+  description: "50 points for yahtzee"
 });
+
+// for chance, can view as some of all dice, requiring at least 0 of a kind
+const chance = new SumDistro({ count: 0, description: "Sum of all dice" });
 
 export {
   ones,
@@ -152,5 +157,5 @@ export {
   smallStraight,
   largeStraight,
   yahtzee,
-  chance,
+  chance
 };

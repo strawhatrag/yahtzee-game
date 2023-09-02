@@ -2,7 +2,7 @@
   width: 30%;
   background: white;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
-  margin: 0 30%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,9 +10,8 @@
 }
 
 h2 {
-  font-weight: 100;
-  font-size: 2em;
-  border-bottom: 2px solid purple;
+  font-size: 1.8em;
+  border-bottom: 2px solid rgb(22, 66, 22);
   display: inline-block;
 }
 
@@ -37,12 +36,12 @@ h2 {
   background-size: 200% auto;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
   background-image: linear-gradient(to right,
-      #91eae4 0%,
-      #7f7fd5 51%,
+      #62af57 0%,
+      #077a4a 51%,
       #91eae4 100%);
   border-radius: 0.5rem;
   border: none;
-  width: 50%;
+  width: 70%;
 
   margin-bottom: 2rem;
 }
@@ -70,7 +69,7 @@ h2 {
 
 .Game-header {
   width: 100%;
-  background: linear-gradient(-45deg, #673ab7, #9c27b0);
+  background: linear-gradient(-45deg, #673ab7, #2261b4);
   background-size: 400% 400%;
   -webkit-animation: Gradient 15s ease infinite;
   -moz-animation: Gradient 15s ease infinite;
